@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#100d1c">
+  <meta name="description" content="Pixora Studio — a simple workspace for creators.">
+  <title>Pixora Studio — Creator Workspace</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#" aria-label="Pixora home">
+        <span class="brand-mark">✦</span><span>pixora<span class="brand-light"> studio</span></span>
+      </a>
+      <div class="workspace-label">WORKSPACE</div>
+      <nav class="nav-list" aria-label="Main navigation">
+        <button class="nav-item active" data-view="dashboard"><span>⌂</span> Dashboard</button>
+        <button class="nav-item" data-view="hooks"><span>✳</span> Hooks & titles</button>
+        <button class="nav-item" data-view="captions"><span>▤</span> Captions</button>
+        <button class="nav-item" data-view="thumbnail"><span>▧</span> Thumbnail ideas</button>
+        <button class="nav-item" data-view="planner"><span>▦</span> Content planner</button>
+        <button class="nav-item" data-view="hashtags"><span>#</span> Hashtag helper</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="upgrade-card">
+          <div class="upgrade-icon">✦</div>
+          <strong>Your creative space</strong>
+          <p>Plan, write and organize your next big idea.</p>
+        </div>
+        <button class="nav-item" id="themeToggle"><span>◐</span> Switch appearance</button>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button class="mobile-menu" id="menuToggle" aria-label="Open navigation">☰</button>
+        <div class="breadcrumb">Workspace <span>/</span> <strong id="currentSection">Dashboard</strong></div>
+        <div class="top-actions"><span class="status-dot"></span><span class="top-status">Your workspace</span><div class="avatar">P</div></div>
+      </header>
+
+      <section class="view active-view" id="view-dashboard">
+        <div class="welcome-row">
+          <div><div class="eyebrow">CREATOR WORKSPACE</div><h1>Make something <span class="gradient-text">worth watching.</span></h1><p class="subheading">Your ideas, content and creative workflow — all in one place.</p></div>
+          <div class="date-pill" id="todayDate"></div>
+        </div>
+        <div class="hero-card">
+          <div class="hero-copy"><span class="hero-kicker">YOUR NEXT IDEA STARTS HERE</span><h2>Turn a blank page<br>into your next post.</h2><p>Build stronger hooks, write captions and keep your content organized.</p><button class="primary-btn" data-go="hooks">Create content <span>↗</span></button></div>
+          <div class="hero-art" aria-hidden="true"><div class="orb orb-one"></div><div class="orb orb-two"></div><div class="spark spark-one">✦</div><div class="spark spark-two">✧</div><div class="art-card"><div class="art-card-top"><span></span><span></span><span></span></div><div class="art-lines"><i></i><i></i><i></i></div><div class="art-play">▶</div></div></div>
+        </div>
+        <div class="section-heading"><div><h2>Your creator tools</h2><p>Pick a tool and get moving.</p></div></div>
+        <div class="tool-grid">
+          <button class="tool-card" data-go="hooks"><span class="tool-icon purple">✳</span><strong>Hook & title lab</strong><small>Find a stronger opening line.</small><span class="card-arrow">↗</span></button>
+          <button class="tool-card" data-go="captions"><span class="tool-icon pink">▤</span><strong>Caption studio</strong><small>Write captions for your posts.</small><span class="card-arrow">↗</span></button>
+          <button class="tool-card" data-go="thumbnail"><span class="tool-icon blue">▧</span><strong>Thumbnail ideas</strong><small>Build a clear visual direction.</small><span class="card-arrow">↗</span></button>
+          <button class="tool-card" data-go="planner"><span class="tool-icon orange">▦</span><strong>Content planner</strong><small>Keep upcoming posts organized.</small><span class="card-arrow">↗</span></button>
+        </div>
+        <div class="bottom-grid">
+          <div class="panel"><div class="panel-heading"><div><h3>Quick start</h3><p>A simple way to begin today.</p></div><span class="mini-badge">START HERE</span></div><ol class="steps"><li><span>01</span><div><strong>Choose a topic</strong><small>Pick one idea your audience cares about.</small></div></li><li><span>02</span><div><strong>Write your hook</strong><small>Give people a reason to keep watching.</small></div></li><li><span>03</span><div><strong>Plan your post</strong><small>Save it in your content planner.</small></div></li></ol></div>
+          <div class="panel saved-panel"><div class="panel-heading"><div><h3>Saved ideas</h3><p>Your planner at a glance.</p></div><button class="text-btn" data-go="planner">Open planner ↗</button></div><div class="saved-count"><strong id="savedCount">0</strong><span>ideas saved in this browser</span></div><p class="muted-note">Your planner is stored locally on this device.</p></div>
+        </div>
+        <p class="disclaimer">Pixora Studio is an independent creator toolkit. Generated suggestions use built-in templates and do not connect to social platforms.</p>
+      </section>
+
+      <section class="view" id="view-hooks">
+        <div class="page-intro"><div class="eyebrow">WRITE WITH PURPOSE</div><h1>Hook & title <span class="gradient-text">lab</span></h1><p>Turn your topic into a few opening ideas to build on.</p></div>
+        <div class="workspace-card">
+          <label for="hookTopic">What is your video about?</label><textarea id="hookTopic" rows="3" placeholder="Example: 5 useful study habits for busy students"></textarea>
+          <div class="form-row"><div><label for="hookStyle">Choose a style</label><select id="hookStyle"><option value="curiosity">Curiosity</option><option value="educational">Educational</option><option value="story">Storytelling</option><option value="list">List / tips</option></select></div><button class="primary-btn generate-btn" id="makeHooks">Generate ideas <span>✦</span></button></div>
+          <div class="results" id="hookResults"><div class="empty-state"><span>✳</span><strong>Your ideas will appear here</strong><small>Enter a topic, then generate a few hooks.</small></div></div>
+        </div>
+      </section>
+
+      <section class="view" id="view-captions">
+        <div class="page-intro"><div class="eyebrow">SAY IT CLEARLY</div><h1>Caption <span class="gradient-text">studio</span></h1><p>Draft a caption that sounds natural and gives your post context.</p></div>
+        <div class="workspace-card">
+          <label for="captionTopic">Describe your post</label><textarea id="captionTopic" rows="3" placeholder="What happens in your video or post?"></textarea>
+          <div class="form-row"><div><label for="captionTone">Caption tone</label><select id="captionTone"><option value="friendly">Friendly</option><option value="educational">Helpful / educational</option><option value="excited">Energetic</option><option value="professional">Professional</option></select></div><button class="primary-btn generate-btn" id="makeCaption">Create caption <span>✦</span></button></div>
+          <div class="results" id="captionResults"><div class="empty-state"><span>▤</span><strong>Your caption will appear here</strong><small>Add a description to get started.</small></div></div>
+        </div>
+      </section>
+
+      <section class="view" id="view-thumbnail">
+        <div class="page-intro"><div class="eyebrow">PLAN THE FIRST IMPRESSION</div><h1>Thumbnail <span class="gradient-text">ideas</span></h1><p>Create a visual brief you can use when designing your thumbnail.</p></div>
+        <div class="workspace-card">
+          <label for="thumbTopic">Video topic or title</label><input id="thumbTopic" type="text" placeholder="Example: I tried learning guitar in 7 days">
+          <div class="form-row"><div><label for="thumbMood">Visual mood</label><select id="thumbMood"><option value="bold and energetic">Bold and energetic</option><option value="clean and minimal">Clean and minimal</option><option value="cinematic and dramatic">Cinematic and dramatic</option><option value="bright and playful">Bright and playful</option></select></div><button class="primary-btn generate-btn" id="makeThumb">Build visual brief <span>✦</span></button></div>
+          <div class="results" id="thumbResults"><div class="empty-state"><span>▧</span><strong>Your thumbnail brief will appear here</strong><small>Describe your video to create a direction.</small></div></div>
+        </div>
+      </section>
+
+      <section class="view" id="view-planner">
+        <div class="page-intro planner-intro"><div><div class="eyebrow">STAY CONSISTENT</div><h1>Content <span class="gradient-text">planner</span></h1><p>Save post ideas and keep track of what you want to create.</p></div><span class="planner-count" id="plannerCount">0 ideas</span></div>
+        <div class="workspace-card planner-form"><div class="form-row"><div class="grow"><label for="planTitle">Post idea</label><input id="planTitle" type="text" placeholder="Give your idea a short title"></div><div><label for="planPlatform">Platform</label><select id="planPlatform"><option>YouTube</option><option>Instagram</option><option>TikTok</option><option>Other</option></select></div><div><label for="planDate">Planned date</label><input id="planDate" type="date"></div><button class="primary-btn add-btn" id="addPlan">Add idea +</button></div></div>
+        <div class="planner-list" id="plannerList"><div class="empty-state"><span>▦</span><strong>Your content plan is empty</strong><small>Add an idea above to start planning.</small></div></div>
+      </section>
+
+      <section class="view" id="view-hashtags">
+        <div class="page-intro"><div class="eyebrow">HELP PEOPLE FIND YOUR POST</div><h1>Hashtag <span class="gradient-text">helper</span></h1><p>Get starter hashtag suggestions based on your topic.</p></div>
+        <div class="workspace-card">
+          <label for="hashTopic">What is your post about?</label><input id="hashTopic" type="text" placeholder="Example: beginner photography tips">
+          <button class="primary-btn generate-btn standalone-btn" id="makeHashtags">Suggest hashtags <span>#</span></button>
+          <div class="results" id="hashResults"><div class="empty-state"><span>#</span><strong>Your hashtags will appear here</strong><small>Enter a topic to get started.</small></div></div>
+        </div>
+      </section>
+      <footer class="footer">Made for creators <span>✦</span> Pixora Studio <span class="footer-version">Starter edition · v2</span></footer>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
